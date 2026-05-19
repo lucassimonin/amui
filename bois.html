@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Référence Bois — Vente et pose de revêtements bois. Lames de terrasse, bardage et accessoires. Import direct, 2 dépôts en Provence et Occitanie."
+    />
+    <title>Référence Bois — Terrasse, bardage & revêtements bois</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: "#FDFBF7",
+              pine: "#1E3F20",
+              ink: "#1A1A1A",
+              bark: "#8B6F47",
+              mist: "#E8E4DC",
+            },
+            fontFamily: {
+              display: ["Playfair Display", "Georgia", "serif"],
+              body: ["DM Sans", "ui-sans-serif", "system-ui"],
+            },
+            boxShadow: {
+              soft: "0 12px 40px rgba(30, 63, 32, 0.08)",
+              card: "0 4px 24px rgba(26, 26, 26, 0.06)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        color-scheme: light;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 800ms ease, transform 800ms ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(30, 63, 32, 0.55) 0%,
+          rgba(30, 63, 32, 0.35) 45%,
+          rgba(253, 251, 247, 0.92) 100%
+        );
+      }
+
+      a,
+      button,
+      input,
+      textarea,
+      select {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+  </head>
+
+  <body class="bg-cream font-body text-ink antialiased">
+    <!-- Navbar -->
+    <header
+      class="sticky top-0 z-50 border-b border-mist/80 bg-cream/90 backdrop-blur-md supports-[backdrop-filter]:bg-cream/75"
+    >
+      <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+        <a href="#top" class="group flex items-center gap-3">
+          <span
+            class="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-pine text-cream shadow-card"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 40 40" class="h-7 w-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5" opacity="0.5" />
+              <circle cx="20" cy="20" r="11" stroke="currentColor" stroke-width="1" opacity="0.35" />
+              <path
+                d="M20 6 C16 14 14 18 14 24 C14 28 16 32 20 34 C24 32 26 28 26 24 C26 18 24 14 20 6Z"
+                fill="currentColor"
+                opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block font-display text-lg font-semibold tracking-tight text-pine sm:text-xl"
+              >Référence</span
+            >
+            <span class="block text-xs font-semibold uppercase tracking-[0.2em] text-ink/60">Bois</span>
+          </span>
+        </a>
+
+        <div class="hidden items-center gap-8 md:flex">
+          <a href="#produits" class="text-sm font-semibold text-ink/75 transition hover:text-pine">Nos produits</a>
+          <a href="#engagements" class="text-sm font-semibold text-ink/75 transition hover:text-pine"
+            >Nos Engagements</a
+          >
+          <a href="#contact" class="text-sm font-semibold text-ink/75 transition hover:text-pine">Devis / Contact</a>
+          <a
+            href="tel:+33467921352"
+            class="inline-flex items-center gap-2 rounded-full bg-pine px-5 py-2.5 text-sm font-semibold text-cream shadow-soft transition hover:bg-pine/90 focus:outline-none focus:ring-2 focus:ring-pine/30"
+          >
+            <i data-lucide="phone" class="h-4 w-4"></i>
+            04 67 92 13 52
+          </a>
+        </div>
+
+        <button
+          id="mobileMenuButton"
+          type="button"
+          class="inline-flex items-center justify-center rounded-full border border-mist bg-white p-2.5 text-pine md:hidden"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          aria-label="Ouvrir le menu"
+        >
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-mist bg-cream md:hidden">
+        <div class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4">
+          <a href="#produits" class="rounded-xl px-3 py-2.5 text-sm font-semibold hover:bg-white">Nos produits</a>
+          <a href="#engagements" class="rounded-xl px-3 py-2.5 text-sm font-semibold hover:bg-white"
+            >Nos Engagements</a
+          >
+          <a href="#contact" class="rounded-xl px-3 py-2.5 text-sm font-semibold hover:bg-white">Devis / Contact</a>
+          <a
+            href="tel:+33467921352"
+            class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-pine px-4 py-3 text-sm font-semibold text-cream"
+          >
+            <i data-lucide="phone" class="h-4 w-4"></i>
+            04 67 92 13 52
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="relative min-h-[88vh] overflow-hidden sm:min-h-[92vh]">
+        <div class="absolute inset-0 -z-10">
+          <img
+            src="https://www.referencebois.fr/wp-content/uploads/2024/12/terrasse-bois.jpg"
+            alt="Terrasse en bois exotique — Référence Bois"
+            class="h-full w-full object-cover"
+            loading="eager"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80'"
+          />
+          <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative mx-auto flex max-w-6xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36 lg:min-h-[88vh]">
+          <div class="reveal max-w-3xl">
+            <p class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cream backdrop-blur-sm">
+              <i data-lucide="leaf" class="h-3.5 w-3.5"></i>
+              2 dépôts — Aix-en-Provence & Montpellier
+            </p>
+
+            <h1
+              class="mt-6 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-cream sm:text-5xl lg:text-6xl"
+            >
+              Vente &amp; pose de revêtements bois.
+              <span class="mt-2 block text-2xl font-medium italic text-cream/90 sm:text-3xl lg:text-4xl">
+                Terrasses, bardages et essences nobles.
+              </span>
+            </h1>
+
+            <p class="mt-6 max-w-xl text-base leading-relaxed text-cream/90 sm:text-lg">
+              Large choix d'essences exotiques et résineuses, prix bas grâce à l'import direct et
+              <span class="font-semibold text-white">10&nbsp;000&nbsp;m² de stock permanent</span>.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <button
+                type="button"
+                data-scrollto="#produits"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-cream px-6 py-3.5 text-sm font-semibold text-pine shadow-soft transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cream/50"
+              >
+                <i data-lucide="trees" class="h-4 w-4"></i>
+                Découvrir nos produits
+              </button>
+              <button
+                type="button"
+                data-scrollto="#contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-cream/40 bg-pine/30 px-6 py-3.5 text-sm font-semibold text-cream backdrop-blur-sm transition hover:bg-pine/50 focus:outline-none focus:ring-2 focus:ring-cream/30"
+              >
+                <i data-lucide="file-text" class="h-4 w-4"></i>
+                Demander un devis
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Produits -->
+      <section id="produits" class="scroll-mt-24 py-20 sm:py-28">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-bark">Nos gammes</p>
+            <h2 class="mt-3 font-display text-3xl font-semibold text-pine sm:text-4xl">Nos gammes de revêtements bois</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink/70">
+              Lames de terrasse, bardage et accessoires de pose — avec conseils, devis détaillé et accompagnement
+              particulier ou professionnel.
+            </p>
+          </div>
+
+          <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Lames terrasse -->
+            <article class="reveal group flex flex-col overflow-hidden rounded-3xl bg-white shadow-card transition hover:shadow-soft">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="https://www.referencebois.fr/wp-content/uploads/2025/01/garapa1.jpg"
+                  alt="Lame de terrasse bois Garapa"
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-pine/60 to-transparent"></div>
+                <span
+                  class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold text-pine"
+                >
+                  <i data-lucide="layout-grid" class="h-3.5 w-3.5"></i>
+                  Terrasse
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col p-6 sm:p-7">
+                <h3 class="font-display text-xl font-semibold text-pine">Lames de terrasse bois</h3>
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-ink/65">
+                  Essences exotiques et résineuses classe 4 : stabilité, durabilité et finitions premium pour terrasses, plages de piscine et aménagements extérieurs.
+                </p>
+                <ul class="mt-4 flex flex-wrap gap-2 text-xs font-medium text-ink/50">
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Garapa</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Cumaru</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Ipé</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Merbau</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Kapur</li>
+                </ul>
+                <button
+                  type="button"
+                  data-scrollto="#contact"
+                  class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-pine transition hover:gap-2.5"
+                >
+                  En savoir plus / Tarifs
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </button>
+              </div>
+            </article>
+
+            <!-- Bardage -->
+            <article class="reveal group flex flex-col overflow-hidden rounded-3xl bg-white shadow-card transition hover:shadow-soft">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="https://www.referencebois.fr/wp-content/uploads/2025/01/ipe.jpg"
+                  alt="Lame de terrasse bois Ipé — bardage et façade"
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-pine/60 to-transparent"></div>
+                <span
+                  class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold text-pine"
+                >
+                  <i data-lucide="home" class="h-3.5 w-3.5"></i>
+                  Bardage
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col p-6 sm:p-7">
+                <h3 class="font-display text-xl font-semibold text-pine">Bardage bois</h3>
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-ink/65">
+                  Revêtements de façade en bois pour isoler, protéger et habiller vos murs. Essences durables et mise en
+                  œuvre conseillée en dépôt.
+                </p>
+                <ul class="mt-4 flex flex-wrap gap-2 text-xs font-medium text-ink/50">
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Pose verticale</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Pose horizontale</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Essences variées</li>
+                </ul>
+                <button
+                  type="button"
+                  data-scrollto="#contact"
+                  class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-pine transition hover:gap-2.5"
+                >
+                  En savoir plus / Tarifs
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </button>
+              </div>
+            </article>
+
+            <!-- Accessoires -->
+            <article
+              class="reveal group flex flex-col overflow-hidden rounded-3xl bg-white shadow-card transition hover:shadow-soft sm:col-span-2 lg:col-span-1"
+            >
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="https://www.referencebois.fr/wp-content/uploads/2025/01/poseur-terrasse-bois-montpellier.jpg"
+                  alt="Pose de terrasse bois et accessoires"
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-pine/60 to-transparent"></div>
+                <span
+                  class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold text-pine"
+                >
+                  <i data-lucide="wrench" class="h-3.5 w-3.5"></i>
+                  Accessoires
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col p-6 sm:p-7">
+                <h3 class="font-display text-xl font-semibold text-pine">Accessoires de pose</h3>
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-ink/65">
+                  Lambourdes, fixations invisibles, clips, vis et produits d'entretien (saturateurs, lasures) pour une pose
+                  durable et soignée.
+                </p>
+                <ul class="mt-4 flex flex-wrap gap-2 text-xs font-medium text-ink/50">
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Lambourdes</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Fixations</li>
+                  <li class="rounded-full bg-mist/60 px-3 py-1">Entretien</li>
+                </ul>
+                <button
+                  type="button"
+                  data-scrollto="#contact"
+                  class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-pine transition hover:gap-2.5"
+                >
+                  En savoir plus / Tarifs
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Engagements -->
+      <section id="engagements" class="scroll-mt-24 border-y border-mist bg-white/60 py-20 sm:py-28">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-bark">Nos engagements</p>
+            <h2 class="mt-3 font-display text-3xl font-semibold text-pine sm:text-4xl">Pourquoi nous choisir ?</h2>
+          </div>
+
+          <div class="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
+            <div class="reveal text-center">
+              <span
+                class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-pine/8 text-pine"
+                aria-hidden="true"
+              >
+                <i data-lucide="ship" class="h-7 w-7"></i>
+              </span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-pine">Import direct</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/65">
+                Plus de 15 ans d'expérience comme importateur : des prix bas et un accès direct aux plus belles essences, sans intermédiaire.
+              </p>
+            </div>
+
+            <div class="reveal text-center">
+              <span
+                class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-pine/8 text-pine"
+                aria-hidden="true"
+              >
+                <i data-lucide="warehouse" class="h-7 w-7"></i>
+              </span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-pine">10&nbsp;000&nbsp;m² de stock</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/65">
+                Stock permanent dans nos dépôts pour répondre vite à vos projets — terrasse, bardage ou chantier pro.
+              </p>
+            </div>
+
+            <div class="reveal text-center">
+              <span
+                class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-pine/8 text-pine"
+                aria-hidden="true"
+              >
+                <i data-lucide="file-check" class="h-7 w-7"></i>
+              </span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-pine">Devis clairs &amp; conseils</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/65">
+                Devis détaillés, informations techniques et accompagnement sur mesure — particuliers, artisans et professionnels.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="scroll-mt-24 py-20 sm:py-28">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="reveal">
+              <p class="text-xs font-semibold uppercase tracking-[0.25em] text-bark">Contact & devis</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold text-pine sm:text-4xl">Venez au dépôt ou demandez un devis</h2>
+              <p class="mt-4 text-base leading-relaxed text-ink/70">
+                Décrivez votre projet (surface, essence, dépôt souhaité) — nous vous rappelons sous 24 h avec un tarif clair.
+              </p>
+
+              <address class="mt-8 space-y-5 not-italic">
+                <div class="flex gap-4">
+                  <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-pine/8 text-pine">
+                    <i data-lucide="map-pin" class="h-5 w-5"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-pine">Dépôt Aix-en-Provence</p>
+                    <p class="mt-1 text-sm text-ink/70">Vente, conseils et devis sur place — Provence &amp; Luberon.</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-pine/8 text-pine">
+                    <i data-lucide="map-pin" class="h-5 w-5"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-pine">Dépôt Montpellier</p>
+                    <p class="mt-1 text-sm text-ink/70">Vente, conseils et devis sur place — Hérault &amp; Occitanie.</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-pine/8 text-pine">
+                    <i data-lucide="hard-hat" class="h-5 w-5"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-pine">Vente &amp; pose</p>
+                    <p class="mt-1 text-sm text-ink/70">
+                      Réseau d'artisans partenaires pour la pose de terrasses et bardages sur votre secteur.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-pine/8 text-pine">
+                    <i data-lucide="phone" class="h-5 w-5"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-pine">Téléphone</p>
+                    <a href="tel:+33467921352" class="mt-1 block text-sm font-semibold text-pine hover:underline"
+                      >04 67 92 13 52</a
+                    >
+                  </div>
+                </div>
+              </address>
+
+              <a
+                href="tel:+33467921352"
+                class="mt-8 inline-flex items-center gap-2 rounded-full bg-pine px-6 py-3.5 text-sm font-semibold text-cream shadow-soft transition hover:bg-pine/90"
+              >
+                <i data-lucide="phone-call" class="h-4 w-4"></i>
+                Appeler — 04 67 92 13 52
+              </a>
+            </div>
+
+            <div class="reveal">
+              <form id="contactForm" class="rounded-3xl border border-mist bg-white p-6 shadow-card sm:p-8" novalidate>
+                <h3 class="font-display text-xl font-semibold text-pine">Demande de devis</h3>
+                <p class="mt-1 text-sm text-ink/60">Réponse sous 24 h ouvrées.</p>
+
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label for="name" class="text-xs font-semibold uppercase tracking-wide text-ink/50">Nom</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      class="mt-1.5 w-full rounded-xl border border-mist bg-cream px-4 py-3 text-sm outline-none transition focus:border-pine focus:ring-2 focus:ring-pine/15"
+                      placeholder="Votre nom"
+                    />
+                    <p data-error-for="name" class="mt-1 hidden text-xs font-medium text-red-600">
+                      Indiquez votre nom (2 caractères min.).
+                    </p>
+                  </div>
+                  <div>
+                    <label for="phone" class="text-xs font-semibold uppercase tracking-wide text-ink/50"
+                      >Téléphone</label
+                    >
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      autocomplete="tel"
+                      class="mt-1.5 w-full rounded-xl border border-mist bg-cream px-4 py-3 text-sm outline-none transition focus:border-pine focus:ring-2 focus:ring-pine/15"
+                      placeholder="06 00 00 00 00"
+                    />
+                    <p data-error-for="phone" class="mt-1 hidden text-xs font-medium text-red-600">
+                      Numéro de téléphone requis.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <label for="product" class="text-xs font-semibold uppercase tracking-wide text-ink/50">Produit</label>
+                  <select
+                    id="product"
+                    name="product"
+                    class="mt-1.5 w-full rounded-xl border border-mist bg-cream px-4 py-3 text-sm outline-none transition focus:border-pine focus:ring-2 focus:ring-pine/15"
+                  >
+                    <option value="">Choisir une gamme</option>
+                    <option>Lames de terrasse bois</option>
+                    <option>Bardage bois</option>
+                    <option>Accessoires de pose</option>
+                    <option>Vente &amp; pose (devis sur mesure)</option>
+                  </select>
+                </div>
+
+                <div class="mt-4">
+                  <label for="message" class="text-xs font-semibold uppercase tracking-wide text-ink/50"
+                    >Votre demande</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="mt-1.5 w-full resize-y rounded-xl border border-mist bg-cream px-4 py-3 text-sm outline-none transition focus:border-pine focus:ring-2 focus:ring-pine/15"
+                    placeholder="Surface en m², essence souhaitée, dépôt (Aix ou Montpellier)…"
+                  ></textarea>
+                  <p data-error-for="message" class="mt-1 hidden text-xs font-medium text-red-600">
+                    Décrivez votre besoin (10 caractères min.).
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-pine px-6 py-3.5 text-sm font-semibold text-cream transition hover:bg-pine/90 focus:outline-none focus:ring-2 focus:ring-pine/30 sm:w-auto"
+                >
+                  <i data-lucide="send" class="h-4 w-4"></i>
+                  Envoyer ma demande
+                </button>
+
+                <p id="formToast" class="mt-4 hidden rounded-xl bg-pine/8 px-4 py-3 text-sm font-medium text-pine" role="status">
+                  Merci — votre demande a bien été enregistrée (démo). Nous vous recontactons très vite.
+                </p>
+              </form>
+
+              <div class="mt-6 overflow-hidden rounded-3xl border border-mist shadow-card">
+                <iframe
+                  title="Carte — Référence Bois, Sud de la France"
+                  class="h-56 w-full sm:h-64"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=Aix-en-Provence%2C%20France&output=embed"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-mist bg-pine text-cream">
+      <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14">
+        <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <div>
+            <p class="font-display text-xl font-semibold">Référence Bois</p>
+            <p class="mt-2 max-w-xs text-sm text-cream/70">
+              Vente et pose de revêtements bois — importateur depuis plus de 15 ans, 2 dépôts en France.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-4">
+              <span
+                class="inline-flex items-center gap-2 rounded-lg border border-cream/20 bg-cream/5 px-3 py-2 text-xs font-semibold"
+                title="Import direct"
+              >
+                <i data-lucide="globe" class="h-4 w-4"></i>
+                Import direct
+              </span>
+              <span
+                class="inline-flex items-center gap-2 rounded-lg border border-cream/20 bg-cream/5 px-3 py-2 text-xs font-semibold"
+                title="15 ans d'expérience"
+              >
+                <i data-lucide="award" class="h-4 w-4"></i>
+                15 ans d'expérience
+              </span>
+            </div>
+          </div>
+
+          <div class="grid gap-6 text-sm sm:grid-cols-2 sm:gap-10">
+            <div>
+              <p class="font-semibold text-cream/90">Légal</p>
+              <ul class="mt-3 space-y-2 text-cream/65">
+                <li><a href="#" class="transition hover:text-cream">Mentions légales</a></li>
+                <li><a href="#" class="transition hover:text-cream">Politique de confidentialité</a></li>
+                <li><a href="#" class="transition hover:text-cream">CGV</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-semibold text-cream/90">Crédits</p>
+              <p class="mt-3 text-cream/65">
+                Site vitrine — démo<br />
+                <a href="amui.html" class="underline decoration-cream/30 underline-offset-2 hover:text-cream"
+                  >amuï studio</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t border-cream/15 pt-6 text-center text-xs text-cream/50">
+          © <span id="year"></span> Référence Bois — Tous droits réservés.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky CTA mobile -->
+    <div class="fixed bottom-4 left-4 right-4 z-50 md:hidden">
+      <a
+        href="tel:+33467921352"
+        class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-pine px-5 py-4 text-sm font-semibold text-cream shadow-soft"
+        aria-label="Appeler le dépôt Référence Bois"
+      >
+        <i data-lucide="phone-call" class="h-5 w-5"></i>
+        Appeler — 04 67 92 13 52
+      </a>
+    </div>
+
+    <script>
+      (function () {
+        const $ = (sel, root = document) => root.querySelector(sel);
+        const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+        if (window.lucide?.createIcons) window.lucide.createIcons();
+
+        const yearEl = $("#year");
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+        const menuBtn = $("#mobileMenuButton");
+        const mobileMenu = $("#mobileMenu");
+        if (menuBtn && mobileMenu) {
+          menuBtn.addEventListener("click", () => {
+            const open = menuBtn.getAttribute("aria-expanded") === "true";
+            menuBtn.setAttribute("aria-expanded", String(!open));
+            mobileMenu.classList.toggle("hidden", open);
+          });
+          $$("#mobileMenu a").forEach((el) => {
+            el.addEventListener("click", () => {
+              menuBtn.setAttribute("aria-expanded", "false");
+              mobileMenu.classList.add("hidden");
+            });
+          });
+        }
+
+        function scrollToTarget(selector) {
+          const el = $(selector);
+          if (!el) return;
+          const header = $("header");
+          const offset = header ? header.getBoundingClientRect().height : 0;
+          const top = window.scrollY + el.getBoundingClientRect().top - offset - 12;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+
+        $$('a[href^="#"]').forEach((a) => {
+          a.addEventListener("click", (e) => {
+            const href = a.getAttribute("href");
+            if (!href || href === "#") return;
+            const target = $(href);
+            if (!target) return;
+            e.preventDefault();
+            scrollToTarget(href);
+          });
+        });
+
+        $$("[data-scrollto]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const t = btn.getAttribute("data-scrollto");
+            if (t) scrollToTarget(t);
+          });
+        });
+
+        const revealEls = $$(".reveal");
+        const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+        if (reduced) {
+          revealEls.forEach((el) => el.classList.add("is-visible"));
+        } else if ("IntersectionObserver" in window) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
+          revealEls.forEach((el) => io.observe(el));
+        } else {
+          revealEls.forEach((el) => el.classList.add("is-visible"));
+        }
+
+        const form = $("#contactForm");
+        const toast = $("#formToast");
+
+        function setError(name, show) {
+          const err = document.querySelector(`[data-error-for="${name}"]`);
+          if (err) err.classList.toggle("hidden", !show);
+        }
+
+        if (form) {
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            toast?.classList.add("hidden");
+
+            const name = $("#name")?.value.trim() || "";
+            const phone = ($("#phone")?.value || "").replace(/[^\d+]/g, "").trim();
+            const message = $("#message")?.value.trim() || "";
+
+            const okName = name.length >= 2;
+            const okPhone = phone.length >= 8;
+            const okMsg = message.length >= 10;
+
+            setError("name", !okName);
+            setError("phone", !okPhone);
+            setError("message", !okMsg);
+
+            if (!okName || !okPhone || !okMsg) {
+              const first = (!okName && $("#name")) || (!okPhone && $("#phone")) || (!okMsg && $("#message"));
+              first?.focus();
+              return;
+            }
+
+            toast?.classList.remove("hidden");
+            form.reset();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
