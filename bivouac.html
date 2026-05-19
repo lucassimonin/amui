@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bivouak Café — Concept restaurant au Marché du Lez, Montpellier. Cantine, café racer, workshop &amp; road trip. Ouvert 7j/7."
+    />
+    <title>BIVOUAK CAFÉ — Concept restaurant au Marché du Lez</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sand: "#F9F6F0",
+              forest: "#1A3322",
+              sage: "#78946a",
+              ink: "#1F1F1F",
+              earth: "#2C4A38",
+              line: "#D8D2C4",
+            },
+            fontFamily: {
+              display: ["Fraunces", "Georgia", "serif"],
+              body: ["Inter", "ui-sans-serif", "system-ui"],
+            },
+            borderRadius: { journal: "0.65rem" },
+            boxShadow: { soft: "0 16px 48px rgba(26, 51, 34, 0.12)" },
+          },
+        },
+      };
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 900ms ease, transform 900ms ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(26, 51, 34, 0.5) 0%,
+          rgba(26, 51, 34, 0.2) 45%,
+          rgba(249, 246, 240, 0.96) 100%
+        );
+      }
+      .nav-scrolled {
+        background: rgba(249, 246, 240, 0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(216, 210, 196, 0.85);
+      }
+      .menu-dot {
+        flex: 1;
+        border-bottom: 1px dotted rgba(31, 31, 31, 0.22);
+        margin: 0 0.75rem 0.35rem;
+      }
+      a,
+      button,
+      input,
+      textarea,
+      select {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+  </head>
+
+  <body class="bg-sand font-body text-ink antialiased">
+    <header id="siteHeader" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+      <nav class="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6">
+        <div class="hidden items-center gap-5 md:flex">
+          <a
+            href="#concept"
+            class="nav-link text-xs font-semibold uppercase tracking-[0.16em] text-sand/90 transition hover:text-white"
+            >Le lieu</a
+          >
+          <a
+            href="#menu"
+            class="nav-link text-xs font-semibold uppercase tracking-[0.16em] text-sand/90 transition hover:text-white"
+            >La carte</a
+          >
+        </div>
+
+        <a href="#top" class="justify-self-center text-center">
+          <img
+            id="logoImg"
+            src="https://www.bivouakcafe.fr/wp-content/uploads/2018/06/logo_accueil.png"
+            alt="Bivouak Café"
+            class="mx-auto h-12 w-auto max-w-[160px] sm:h-14"
+            width="140"
+            height="56"
+          />
+        </a>
+
+        <div class="hidden items-center justify-end gap-5 md:flex">
+          <a
+            href="#workshop"
+            class="nav-link text-xs font-semibold uppercase tracking-[0.16em] text-sand/90 transition hover:text-white"
+            >Workshop</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-xs font-semibold uppercase tracking-[0.16em] text-sand/90 transition hover:text-white"
+            >Contact</a
+          >
+          <button
+            type="button"
+            data-scrollto="#contact"
+            class="nav-cta rounded-journal border border-sand/30 bg-sand/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-sand backdrop-blur-sm transition hover:bg-sand hover:text-forest"
+          >
+            Réserver
+          </button>
+        </div>
+
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="col-start-3 justify-self-end rounded-journal border border-sand/30 bg-sand/10 p-2.5 text-sand md:hidden"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-line/40 bg-sand/95 px-4 py-4 backdrop-blur-md md:hidden">
+        <div class="flex flex-col gap-2 text-sm font-medium">
+          <a href="#concept" class="rounded-journal px-3 py-2 hover:bg-forest/5">Le lieu</a>
+          <a href="#menu" class="rounded-journal px-3 py-2 hover:bg-forest/5">La carte</a>
+          <a href="#workshop" class="rounded-journal px-3 py-2 hover:bg-forest/5">Workshop</a>
+          <a href="#contact" class="rounded-journal px-3 py-2 hover:bg-forest/5">Contact</a>
+          <button type="button" data-scrollto="#contact" class="mt-1 rounded-journal bg-forest px-3 py-2.5 text-sand">
+            Réserver
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="relative min-h-screen overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+          <img
+            src="https://www.bivouakcafe.fr/wp-content/uploads/2022/04/wim-lippens-BC02_HD-0031-1920x1091.jpg"
+            alt="Ambiance Bivouak Café — Marché du Lez"
+            class="h-full w-full object-cover"
+            loading="eager"
+            onerror="this.onerror=null;this.src='https://www.bivouakcafe.fr/wp-content/uploads/2026/01/terrasse-montpellier-bivouak.jpg'"
+          />
+          <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-end px-4 pb-20 pt-28 sm:px-6 sm:pb-28">
+          <div class="reveal max-w-3xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sand/80">Marché du Lez · Montpellier</p>
+            <h1 class="mt-4 font-display text-5xl font-semibold tracking-tight text-sand sm:text-7xl">Le BIVOUAK</h1>
+            <p class="mt-3 text-sm font-medium uppercase tracking-[0.25em] text-sand/90 sm:text-base">
+              cantine · cafe racer · workshop · road trip
+            </p>
+            <p class="mt-6 font-display text-2xl italic text-sand/95 sm:text-3xl">Base × Camp of Simple Pleasures</p>
+            <p class="mt-5 max-w-xl text-base leading-relaxed text-sand/85">
+              Situé au Marché du Lez, le Bivouak Café est le point de départ de votre prochaine expédition culinaire à
+              Montpellier. Cuisine généreuse en journée, cocktails au coucher du soleil.
+            </p>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                data-scrollto="#menu"
+                class="inline-flex items-center justify-center gap-2 rounded-journal bg-sand px-6 py-3.5 text-sm font-semibold text-forest shadow-soft transition hover:bg-white"
+              >
+                <i data-lucide="utensils-crossed" class="h-4 w-4"></i>
+                Voir le menu
+              </button>
+              <button
+                type="button"
+                data-scrollto="#contact"
+                class="inline-flex items-center justify-center gap-2 rounded-journal border border-sand/40 bg-forest/35 px-6 py-3.5 text-sm font-semibold text-sand backdrop-blur-sm transition hover:bg-forest/55"
+              >
+                <i data-lucide="calendar" class="h-4 w-4"></i>
+                Faire une réservation
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Définition + concept -->
+      <section id="concept" class="scroll-mt-24 border-t border-line py-20 sm:py-28">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal mx-auto max-w-3xl text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-sage">Notre concept</p>
+            <h2 class="mt-3 font-display text-3xl font-semibold text-forest sm:text-4xl">
+              Bivouak Café : cantine – café racer – workshop
+            </h2>
+            <p class="mt-5 text-sm leading-relaxed text-ink/70 sm:text-base">
+              <em>Bivouac(k) n.m.</em> — Un bivouac est un campement rudimentaire permettant de passer la nuit en pleine
+              nature. Une expérience à vivre en famille, entre amis, en van, à moto. Se retrouver dans un endroit
+              chaleureux, simplement.
+            </p>
+            <p class="mt-4 text-sm font-medium text-forest">Un bivouac(k) ne se décrit pas, il se vit.</p>
+          </div>
+
+          <div class="mt-14 grid gap-8 md:grid-cols-3">
+            <article class="reveal">
+              <div class="overflow-hidden rounded-journal border border-line bg-white">
+                <img
+                  src="https://www.bivouakcafe.fr/wp-content/uploads/2022/04/wim-lippens-BC02_HD-0031-1024x683.jpg"
+                  alt="Cuisine du Bivouak — cantine"
+                  class="aspect-[4/3] w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="mt-5 font-display text-xl font-semibold text-forest">Cantine</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/70">
+                Tout au long de la journée, notre cuisine rayonne pour vos pauses gourmandes en non-stop : tapas &amp;
+                mezze, formule du midi, carte du moment.
+              </p>
+            </article>
+
+            <article class="reveal">
+              <div class="overflow-hidden rounded-journal border border-line bg-white">
+                <img
+                  src="https://www.bivouakcafe.fr/wp-content/uploads/2022/04/wim-lippens-BC02_HD-0031-1024x683.jpg"
+                  alt="Bar cocktails — café racer"
+                  class="aspect-[4/3] w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="mt-5 font-display text-xl font-semibold text-forest">Café racer</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/70">
+                Au coucher du soleil, place aux cocktails et à l'ambiance road trip. Bar à cocktails, vins et boissons
+                dans un décor chiné et décontracté.
+              </p>
+            </article>
+
+            <article id="workshop" class="reveal scroll-mt-28">
+              <div class="overflow-hidden rounded-journal border border-line bg-white">
+                <img
+                  src="https://www.bivouakcafe.fr/wp-content/uploads/2026/01/terrasse-montpellier-bivouak.jpg"
+                  alt="Terrasse Bivouak Café"
+                  class="aspect-[4/3] w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="mt-5 font-display text-xl font-semibold text-forest">Workshop &amp; road trip</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/70">
+                Ateliers, store et expériences « road trip ». Réunion de travail ou tête-à-tête : le Bivouak est le camp
+                de base idéal pour vos moments d'exception.
+              </p>
+            </article>
+          </div>
+
+          <p class="reveal mx-auto mt-12 max-w-2xl text-center text-sm text-ink/60">
+            Que ce soit dans notre intérieur au mobilier chiné ou sur notre terrasse ombragée, l'invitation est simple :
+            profitez de l'instant.
+          </p>
+        </div>
+      </section>
+
+      <!-- Menu -->
+      <section id="menu" class="scroll-mt-24 border-t border-line bg-white/60 py-20 sm:py-28">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6">
+          <div class="reveal text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-sage">La carte</p>
+            <h2 class="mt-3 font-display text-3xl font-semibold text-forest sm:text-4xl">Carte du moment</h2>
+            <p class="mt-3 text-sm text-ink/55">
+              Tapas · formule midi · cocktails · vins — carte complète sur
+              <a
+                href="https://www.bivouakcafe.fr/la-carte-du-moment/"
+                class="underline decoration-sage/40 hover:text-forest"
+                target="_blank"
+                rel="noopener noreferrer"
+                >bivouakcafe.fr</a
+              >
+            </p>
+          </div>
+
+          <div class="reveal mt-12">
+            <h3 class="font-display text-lg font-semibold text-forest">Tapas &amp; mezze</h3>
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-end"><span class="font-medium">Assortiment mezze maison</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+              <li class="flex items-end"><span class="font-medium">Planche à partager</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+              <li class="flex items-end"><span class="font-medium">Tapas du marché</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+            </ul>
+            <p class="mt-2 text-xs text-ink/45">Carte évolutive selon les arrivages du Marché du Lez.</p>
+          </div>
+
+          <div class="reveal mt-12 border-t border-line pt-12">
+            <h3 class="font-display text-lg font-semibold text-forest">Formule du midi &amp; enfant</h3>
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-end"><span class="font-medium">Formule déjeuner</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+              <li class="flex items-end"><span class="font-medium">Menu enfant</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+            </ul>
+          </div>
+
+          <div class="reveal mt-12 border-t border-line pt-12">
+            <h3 class="font-display text-lg font-semibold text-forest">Cocktails &amp; boissons</h3>
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-end"><span class="font-medium">Cocktails signature</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+              <li class="flex items-end"><span class="font-medium">Vins (carte dédiée)</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+              <li class="flex items-end"><span class="font-medium">Bières &amp; softs</span><span class="menu-dot"></span><span class="text-ink/50">—</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lieu & avis -->
+      <section class="bg-forest py-20 text-sand sm:py-28">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="grid gap-12 lg:grid-cols-2">
+            <div class="reveal">
+              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-sand/55">Le Marché du Lez</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold sm:text-4xl">Plus qu'un restaurant</h2>
+              <p class="mt-5 text-sm leading-relaxed text-sand/80 sm:text-base">
+                Bien plus qu'un restaurant bar à cocktails, c'est une escale chaleureuse pensée pour durer : cuisine
+                créative, accueil attentionné et ambiance « camp de base » au cœur de Montpellier.
+              </p>
+              <ul class="mt-8 space-y-3 text-sm text-sand/75">
+                <li class="flex gap-3"><i data-lucide="calendar-days" class="mt-0.5 h-4 w-4 shrink-0 opacity-60"></i>Ouvert 7 jours / 7 — 10h00 – 00h00</li>
+                <li class="flex gap-3"><i data-lucide="users" class="mt-0.5 h-4 w-4 shrink-0 opacity-60"></i>Groupes &amp; privatisation sur demande</li>
+                <li class="flex gap-3"><i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 opacity-60"></i>1348 avenue de la Mer-Raymond Dugrand</li>
+              </ul>
+            </div>
+
+            <div class="reveal space-y-4">
+              <blockquote class="rounded-journal border border-sand/15 bg-sand/5 p-5 text-sm italic text-sand/90">
+                « Superbe endroit et excellent, très bonne adresse. »
+                <footer class="mt-2 text-xs font-semibold not-italic text-sand/55">— Annie Gosse</footer>
+              </blockquote>
+              <blockquote class="rounded-journal border border-sand/15 bg-sand/5 p-5 text-sm italic text-sand/90">
+                « Cuisine généreuse et raffinée. Personnel au top. Je recommande fortement. »
+                <footer class="mt-2 text-xs font-semibold not-italic text-sand/55">— Mathilde Trelcat</footer>
+              </blockquote>
+              <blockquote class="rounded-journal border border-sand/15 bg-sand/5 p-5 text-sm italic text-sand/90">
+                « Entre amis ou en couple cet endroit est parfait. Personnel à l'écoute et très attentionné. »
+                <footer class="mt-2 text-xs font-semibold not-italic text-sand/55">— Aude Vallain</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workshop / résa -->
+      <section class="border-t border-line py-20 sm:py-28">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal flex flex-col gap-8 rounded-journal border border-line bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-sage">Workshop &amp; store</p>
+              <h2 class="mt-2 font-display text-2xl font-semibold text-forest sm:text-3xl">Road trip &amp; ateliers</h2>
+              <p class="mt-2 max-w-md text-sm text-ink/65">
+                Découvrez nos expériences « road trip », la boutique et les ateliers workshop — le Bivouak, c'est aussi une
+                aventure hors assiette.
+              </p>
+            </div>
+            <div class="flex flex-col gap-3 sm:items-end">
+              <a
+                href="https://www.bivouakcafe.fr/workshop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-sage"
+              >
+                Atelier workshop <i data-lucide="external-link" class="h-4 w-4"></i>
+              </a>
+              <a
+                href="https://www.bivouakcafe.fr/road-trip/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-sage"
+              >
+                Road trip <i data-lucide="external-link" class="h-4 w-4"></i>
+              </a>
+              <button
+                type="button"
+                data-scrollto="#contact"
+                class="mt-2 inline-flex items-center gap-2 rounded-journal bg-forest px-5 py-3 text-sm font-semibold text-sand transition hover:bg-earth"
+              >
+                Réserver <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="scroll-mt-24 border-t border-line py-20 sm:py-28">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="grid gap-12 lg:grid-cols-2">
+            <div class="reveal">
+              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-sage">Infos pratiques</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold text-forest">Nous trouver</h2>
+
+              <address class="mt-8 space-y-5 not-italic text-sm">
+                <div class="flex gap-4">
+                  <i data-lucide="map-pin" class="mt-0.5 h-5 w-5 text-sage"></i>
+                  <div>
+                    <p class="font-semibold text-forest">BIVOUAK CAFÉ — Marché du Lez</p>
+                    <p class="mt-1 text-ink/65">
+                      1348 avenue de la Mer-Raymond Dugrand<br />
+                      34000 Montpellier
+                    </p>
+                    <p class="mt-2 text-xs text-ink/50">
+                      Dans l'enceinte du Marché du Lez : suivez les allées jusqu'à notre terrasse ombragée.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <i data-lucide="clock" class="mt-0.5 h-5 w-5 text-sage"></i>
+                  <div>
+                    <p class="font-semibold text-forest">Horaires</p>
+                    <p class="text-ink/65">7 jours / 7 · 10h00 – 00h00</p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <i data-lucide="phone" class="mt-0.5 h-5 w-5 text-sage"></i>
+                  <div>
+                    <a href="tel:+33681378275" class="font-semibold text-forest hover:text-sage">06 81 37 82 75</a>
+                  </div>
+                </div>
+              </address>
+
+              <a
+                href="tel:+33681378275"
+                class="mt-6 inline-flex items-center gap-2 rounded-journal bg-forest px-6 py-3.5 text-sm font-semibold text-sand transition hover:bg-earth"
+              >
+                <i data-lucide="phone-call" class="h-4 w-4"></i>
+                Appeler pour réserver
+              </a>
+            </div>
+
+            <div class="reveal">
+              <form id="contactForm" class="rounded-journal border border-line bg-white p-6 sm:p-8" novalidate>
+                <h3 class="font-display text-xl font-semibold text-forest">Réservation &amp; groupes</h3>
+                <p class="mt-1 text-sm text-ink/55">Demande de table ou privatisation — réponse rapide (démo).</p>
+
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label for="name" class="text-xs font-medium uppercase tracking-wide text-ink/45">Nom</label>
+                    <input id="name" type="text" class="mt-1.5 w-full rounded-journal border border-line bg-sand px-4 py-3 text-sm outline-none focus:border-forest focus:ring-2 focus:ring-forest/15" />
+                    <p data-error-for="name" class="mt-1 hidden text-xs text-red-600">Nom requis.</p>
+                  </div>
+                  <div>
+                    <label for="email" class="text-xs font-medium uppercase tracking-wide text-ink/45">E-mail</label>
+                    <input id="email" type="email" class="mt-1.5 w-full rounded-journal border border-line bg-sand px-4 py-3 text-sm outline-none focus:border-forest focus:ring-2 focus:ring-forest/15" />
+                    <p data-error-for="email" class="mt-1 hidden text-xs text-red-600">E-mail invalide.</p>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <label for="subject" class="text-xs font-medium uppercase tracking-wide text-ink/45">Sujet</label>
+                  <select id="subject" class="mt-1.5 w-full rounded-journal border border-line bg-sand px-4 py-3 text-sm outline-none focus:border-forest">
+                    <option value="">Choisir</option>
+                    <option>Réservation table</option>
+                    <option>Privatisation / groupe</option>
+                    <option>Workshop</option>
+                    <option>Autre question</option>
+                  </select>
+                </div>
+
+                <div class="mt-4">
+                  <label for="message" class="text-xs font-medium uppercase tracking-wide text-ink/45">Message</label>
+                  <textarea id="message" rows="4" class="mt-1.5 w-full resize-y rounded-journal border border-line bg-sand px-4 py-3 text-sm outline-none focus:border-forest focus:ring-2 focus:ring-forest/15" placeholder="Date, nombre de convives, horaire…"></textarea>
+                  <p data-error-for="message" class="mt-1 hidden text-xs text-red-600">Message trop court.</p>
+                </div>
+
+                <button type="submit" class="mt-6 inline-flex items-center gap-2 rounded-journal bg-forest px-6 py-3.5 text-sm font-semibold text-sand transition hover:bg-earth">
+                  <i data-lucide="send" class="h-4 w-4"></i>
+                  Envoyer
+                </button>
+                <p id="formToast" class="mt-4 hidden rounded-journal bg-forest/8 px-4 py-3 text-sm text-forest" role="status">
+                  Merci — votre demande a été enregistrée (démo).
+                </p>
+              </form>
+
+              <div class="mt-6 overflow-hidden rounded-journal border border-line">
+                <iframe
+                  title="Carte — Bivouak Café, Marché du Lez"
+                  class="h-56 w-full sm:h-64"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=43.592382,3.905457&z=15&output=embed"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-line py-8 text-center text-xs text-ink/45">
+      <p>© <span id="year"></span> BIVOUAK CAFÉ — Marché du Lez, Montpellier</p>
+      <p class="mt-1">
+        <a href="amui.html" class="underline decoration-ink/20 hover:text-forest">amuï studio</a>
+        ·
+        <a href="https://www.bivouakcafe.fr/" class="underline decoration-ink/20 hover:text-forest" target="_blank" rel="noopener">Site officiel</a>
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+        if (window.lucide?.createIcons) lucide.createIcons();
+        const year = $("#year");
+        if (year) year.textContent = String(new Date().getFullYear());
+
+        const header = $("#siteHeader");
+        const logoImg = $("#logoImg");
+        const navLinks = $$(".nav-link");
+        const navCta = $(".nav-cta");
+        const mobileBtn = $("#mobileMenuBtn");
+        const mobileMenu = $("#mobileMenu");
+
+        function onScroll() {
+          const scrolled = window.scrollY > 48;
+          header?.classList.toggle("nav-scrolled", scrolled);
+          if (logoImg) {
+            if (scrolled) {
+              logoImg.classList.remove("brightness-0", "invert");
+            } else {
+              logoImg.classList.add("brightness-0", "invert");
+            }
+          }
+          navLinks.forEach((el) => {
+            el.classList.toggle("text-sand/90", !scrolled);
+            el.classList.toggle("hover:text-white", !scrolled);
+            el.classList.toggle("text-ink/80", scrolled);
+            el.classList.toggle("hover:text-forest", scrolled);
+          });
+          if (navCta) {
+            if (scrolled) {
+              navCta.className =
+                "nav-cta rounded-journal border border-forest/20 bg-forest px-4 py-2 text-xs font-semibold uppercase tracking-wider text-sand transition hover:bg-earth";
+            } else {
+              navCta.className =
+                "nav-cta rounded-journal border border-sand/30 bg-sand/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-sand backdrop-blur-sm transition hover:bg-sand hover:text-forest";
+            }
+          }
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        mobileBtn?.addEventListener("click", () => {
+          const open = mobileBtn.getAttribute("aria-expanded") === "true";
+          mobileBtn.setAttribute("aria-expanded", String(!open));
+          mobileMenu?.classList.toggle("hidden", open);
+        });
+
+        function scrollTo(sel) {
+          const el = $(sel);
+          if (!el) return;
+          const h = header?.offsetHeight || 0;
+          window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - h - 8, behavior: "smooth" });
+        }
+
+        $$('a[href^="#"]').forEach((a) => {
+          a.addEventListener("click", (e) => {
+            const id = a.getAttribute("href");
+            if (!id || id === "#" || !$(id)) return;
+            e.preventDefault();
+            scrollTo(id);
+            mobileMenu?.classList.add("hidden");
+            mobileBtn?.setAttribute("aria-expanded", "false");
+          });
+        });
+        $$("[data-scrollto]").forEach((btn) => {
+          btn.addEventListener("click", () => scrollTo(btn.getAttribute("data-scrollto")));
+        });
+
+        const reveals = $$(".reveal");
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          reveals.forEach((el) => el.classList.add("is-visible"));
+        } else if ("IntersectionObserver" in window) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  e.target.classList.add("is-visible");
+                  io.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
+          reveals.forEach((el) => io.observe(el));
+        } else {
+          reveals.forEach((el) => el.classList.add("is-visible"));
+        }
+
+        $("#contactForm")?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const toast = $("#formToast");
+          toast?.classList.add("hidden");
+          const name = $("#name")?.value.trim() || "";
+          const email = $("#email")?.value.trim() || "";
+          const msg = $("#message")?.value.trim() || "";
+          const okName = name.length >= 2;
+          const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          const okMsg = msg.length >= 10;
+          document.querySelector('[data-error-for="name"]')?.classList.toggle("hidden", okName);
+          document.querySelector('[data-error-for="email"]')?.classList.toggle("hidden", okEmail);
+          document.querySelector('[data-error-for="message"]')?.classList.toggle("hidden", okMsg);
+          if (!okName || !okEmail || !okMsg) return;
+          toast?.classList.remove("hidden");
+          e.target.reset();
+        });
+      })();
+    </script>
+  </body>
+</html>
